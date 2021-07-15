@@ -3,12 +3,12 @@ import { Text, View, StyleSheet, Image, ScrollView, TouchableOpacity } from "rea
 import Header from "./Header";
 import Footer from "./Footer";
 
+//Browse Categories Page
 const BrowseCategories = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Header heading="Browse Categories" />
       <ScrollView>
-
         <View style={styles.browseCategoryRowFlex}>
           <View style={styles.columnViewStyle}>
             <TouchableOpacity onPress={() => navigation.navigate('BrowseRestaurant') }>
@@ -52,16 +52,17 @@ const BrowseCategories = ({navigation}) => {
               <Image style={styles.browseImageIcon} source={require('../assets/heart-icon-blue.png')} />
               <Text style={styles.categoriesText}>Popular</Text>
             </TouchableOpacity>
-
           </View>
-        </View>
 
+        </View>
+        
       </ScrollView>
-      <Footer />
+      <Footer props={navigation}/>
     </View>
   )
 }
 
+//Styling Browse Categories Page
 const styles = StyleSheet.create({
   container: {
     flex: 1,

@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, Image, ScrollView, TouchableOpacity } from "rea
 import Footer from "./Footer";
 import Header from "./Header";
 
+//Restaurant Data Array
 const datas = [
   {
     id: 1,
@@ -66,32 +67,35 @@ const datas = [
   },
 ];
 
+//Mapping Function for Restaurant Data
 function createData(data) {
   return (
     <View>
-      <View style={styles.restaurantRowStyle}>
+      <TouchableOpacity>
+        <View style={styles.restaurantRowStyle}>
 
-        <View style={{ width: "20%" }}>
-          <Image style={styles.restaurantImage} source={data.restaurantImageSource} />
-        </View>
+          <View style={{ width: "20%" }}>
+            <Image style={styles.restaurantImage} source={data.restaurantImageSource} />
+          </View>
 
-        <View style={{ width: "70%", marginTop: 5 }}>
-          <Text style={styles.restaurantText}>{data.restaurantName}</Text>
-          <View style={{ flexDirection: "column" }}>
-            <View style={{ flexDirection: "row", marginLeft: 5, marginTop: 5 }}>
-              <Image style={styles.gpsIcon} source={data.gpsSource} />
-              <Text style={styles.locationText}>{data.locationName}</Text>
-              <Image style={styles.heartIcon} source={data.heartIconSource} ></Image>
-              <Text style={styles.liketext}>{data.likesText}</Text>
+          <View style={{ width: "70%", marginTop: 5 }}>
+            <Text style={styles.restaurantText}>{data.restaurantName}</Text>
+            <View style={{ flexDirection: "column" }}>
+              <View style={{ flexDirection: "row", marginLeft: 5, marginTop: 5 }}>
+                <Image style={styles.gpsIcon} source={data.gpsSource} />
+                <Text style={styles.locationText}>{data.locationName}</Text>
+                <Image style={styles.heartIcon} source={data.heartIconSource} ></Image>
+                <Text style={styles.liketext}>{data.likesText}</Text>
+              </View>
             </View>
           </View>
-        </View>
 
-        <View style={{ width: "10%" }}>
-          <Image style={styles.rightArrow} source={data.rightArrowSource}></Image>
-        </View>
+          <View style={{ width: "10%" }}>
+            <Image style={styles.rightArrow} source={data.rightArrowSource}></Image>
+          </View>
 
-      </View>
+        </View>
+      </TouchableOpacity>
 
       <View
         style={{
@@ -104,19 +108,20 @@ function createData(data) {
   )
 }
 
-const BrowseRestaurants = () => {
+//Browse Restaurant Page
+const BrowseRestaurants = ({ navigation }) => {
   return (
-
     <View style={styles.container}>
-      <Header heading="Browse Restaurants"/>
+      <Header heading="Browse Restaurants" />
       <ScrollView>
         {datas.map(createData)}
       </ScrollView>
-      <Footer />
+      <Footer props={navigation} />
     </View>
   )
 }
 
+//Styling Browse Restaurant Data
 const styles = StyleSheet.create({
   container: {
     flex: 1

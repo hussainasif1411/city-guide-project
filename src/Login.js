@@ -1,8 +1,9 @@
 import React from "react";
 import { Text, View, StyleSheet, Image, TextInput, TouchableOpacity } from "react-native";
 
+//Login Page
 const Login = ({ navigation }) => {
-    return (
+    return ( 
         <View style={styles.container}>
             <View style={styles.header}>
                 <Image style={styles.image} source={require('../assets/cityguide-bg-image-4.jpg')} />
@@ -32,6 +33,7 @@ const Login = ({ navigation }) => {
     )
 }
 
+//Styling Login Page
 const styles = StyleSheet.create({
     container: {
         flex: 1
@@ -85,7 +87,6 @@ const styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         alignItems: 'center',
-        // marginBottom: 18,
         width: '85%',
         borderRadius: 5,
         backgroundColor: '#1E90FF',

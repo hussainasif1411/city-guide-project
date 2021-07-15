@@ -1,9 +1,9 @@
 import React from 'react';
 import { Text, View, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 
+//Home Page
 const Home = ({ navigation }) => {
-  return(
-    //Home Page
+  return( 
     <View style={styles.container}>
       <ImageBackground style={styles.bgImage} source={require('../assets/cityguide-bg-image-4.jpg')}>
       <Text style={styles.headerText}>Cityguide</Text>
@@ -20,7 +20,6 @@ const Home = ({ navigation }) => {
       </ImageBackground >
       
     </View>
-
   )
 }
 
