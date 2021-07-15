@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet, Image, TextInput, TouchableOpacity } from "react-native";
 
-const Login = () => {
+const Login = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -15,7 +15,7 @@ const Login = () => {
                 <TextInput style={styles.inputField} placeholderTextColor="#C8C8C8" placeholder="📨   Your email address"></TextInput>
                 <TextInput style={styles.inputField} placeholderTextColor="#C8C8C8" placeholder="🔓︎   Your password"></TextInput>
 
-                <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('')}>
+                <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('BrowseCategories')}>
                     <Text style={styles.loginButtonText}>Login</Text>
                 </TouchableOpacity>
 
@@ -31,8 +31,6 @@ const Login = () => {
         </View>
     )
 }
-
-export default Login;
 
 const styles = StyleSheet.create({
     container: {
@@ -105,3 +103,5 @@ const styles = StyleSheet.create({
         marginTop: 15
     }
 });
+
+export default Login;

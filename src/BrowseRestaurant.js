@@ -1,38 +1,95 @@
 import React from "react";
-import { Text, View, StyleSheet, Image, ScrollView } from "react-native";
+import { Text, View, StyleSheet, Image, ScrollView, TouchableOpacity } from "react-native";
+import Footer from "./Footer";
+import Header from "./Header";
 
-const App = () => {
+const datas = [
+  {
+    id: 1,
+    restaurantImageSource: require('../assets/pizza.jpg'),
+    restaurantName: "Gramercy Tavern",
+    gpsSource: require('../assets/location.jpg'),
+    locationName: "42 E 20th St",
+    heartIconSource: require('../assets/heart.jpeg'),
+    likesText: "228",
+    rightArrowSource: require('../assets/right-arrow.jpeg')
+  },
+  {
+    id: 2,
+    restaurantImageSource: require('../assets/burger.jpg'),
+    restaurantName: "Blue Hill",
+    gpsSource: require('../assets/location.jpg'),
+    locationName: "75 Washington PI",
+    heartIconSource: require('../assets/heart.jpeg'),
+    likesText: "215",
+    rightArrowSource: require('../assets/right-arrow.jpeg')
+  },
+  {
+    id: 3,
+    restaurantImageSource: require('../assets/pasta.png'),
+    restaurantName: "Le Bernardin",
+    gpsSource: require('../assets/location.jpg'),
+    locationName: "155 W 51st St",
+    heartIconSource: require('../assets/heart.jpeg'),
+    likesText: "199",
+    rightArrowSource: require('../assets/right-arrow.jpeg')
+  },
+  {
+    id: 4,
+    restaurantImageSource: require('../assets/french-fries.jpg'),
+    restaurantName: "Jean-Georges",
+    gpsSource: require('../assets/location.jpg'),
+    locationName: "1 Central Park West",
+    heartIconSource: require('../assets/heart.jpeg'),
+    likesText: "183",
+    rightArrowSource: require('../assets/right-arrow.jpeg')
+  },
+  {
+    id: 5,
+    restaurantImageSource: require('../assets/brownie.jpg'),
+    restaurantName: "The Four Seasons",
+    gpsSource: require('../assets/location.jpg'),
+    locationName: "99 E 52md St",
+    heartIconSource: require('../assets/heart.jpeg'),
+    likesText: "178",
+    rightArrowSource: require('../assets/right-arrow.jpeg')
+  },
+  {
+    id: 6,
+    restaurantImageSource: require('../assets/sandwich.jpeg'),
+    restaurantName: "Ninja New York",
+    gpsSource: require('../assets/location.jpg'),
+    locationName: "25 Hudson St",
+    heartIconSource: require('../assets/heart.jpeg'),
+    likesText: "78",
+    rightArrowSource: require('../assets/right-arrow.jpeg')
+  },
+];
+
+function createData(data) {
   return (
-    <ScrollView>
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Image style={styles.leftArrowIcon} source={require('./assets/left-arrow-icon.png')} />
-        <Text style={styles.headerText}>Browse restaurants</Text>
-        <Image style={styles.searchIcon} source={require('./assets/Search_Icon.png')} />
-      </View>
+    <View>
+      <View style={styles.restaurantRowStyle}>
 
-      <View style={{ flexDirection: "row", padding: 20, height: "10%" }}>
         <View style={{ width: "20%" }}>
-          <Image style={styles.restaurantImage} source={require('./assets/pizza.jpg')} />
+          <Image style={styles.restaurantImage} source={data.restaurantImageSource} />
         </View>
 
         <View style={{ width: "70%", marginTop: 5 }}>
-          <Text style={styles.restaurantText}>Gramercy Tavern</Text>
+          <Text style={styles.restaurantText}>{data.restaurantName}</Text>
           <View style={{ flexDirection: "column" }}>
             <View style={{ flexDirection: "row", marginLeft: 5, marginTop: 5 }}>
-              <Image style={styles.gpsIcon} source={require('./assets/location.jpg')} />
-              <Text style={styles.locationText}>42 E 20th St</Text>
-              <Image style={styles.heartIcon} source={require('./assets/heart.jpeg')} ></Image>
-              <Text style={styles.liketext}>228</Text>
+              <Image style={styles.gpsIcon} source={data.gpsSource} />
+              <Text style={styles.locationText}>{data.locationName}</Text>
+              <Image style={styles.heartIcon} source={data.heartIconSource} ></Image>
+              <Text style={styles.liketext}>{data.likesText}</Text>
             </View>
           </View>
         </View>
 
         <View style={{ width: "10%" }}>
-          <Image style={styles.rightArrow} source={require('./assets/right-arrow.jpeg')}></Image>
+          <Image style={styles.rightArrow} source={data.rightArrowSource}></Image>
         </View>
-
-
 
       </View>
 
@@ -43,269 +100,20 @@ const App = () => {
           marginTop: 5
         }}
       />
-
-
-      <View style={{ flexDirection: "row", padding: 20, height: "10%" }}>
-        <View style={{ width: "20%" }}>
-          <Image style={styles.restaurantImage} source={require('./assets/pasta.png')} />
-        </View>
-
-        <View style={{ width: "70%", marginTop: 5 }}>
-          <Text style={styles.restaurantText}>The Four Seasons</Text>
-          <View style={{ flexDirection: "column" }}>
-            <View style={{ flexDirection: "row", marginLeft: 5, marginTop: 5 }}>
-              <Image style={styles.gpsIcon} source={require('./assets/location.jpg')} />
-              <Text style={styles.locationText}>99 E 52nd St</Text>
-              <Image style={styles.heartIcon} source={require('./assets/heart.jpeg')} ></Image>
-              <Text style={styles.liketext}>22855</Text>
-            </View>
-          </View>
-        </View>
-
-        <View style={{ width: "10%" }}>
-          <Image style={styles.rightArrow} source={require('./assets/right-arrow.jpeg')}></Image>
-        </View>
-      </View>
-
-      <View
-        style={{
-          borderBottomColor: '#A9A9A9',
-          borderBottomWidth: 0.4,
-          marginTop: 5
-        }}
-      />
-
-      <View style={{ flexDirection: "row", padding: 20, height: "10%" }}>
-        <View style={{ width: "20%" }}>
-          <Image style={styles.restaurantImage} source={require('./assets/burger.jpg')} />
-        </View>
-
-        <View style={{ width: "70%", marginTop: 5 }}>
-          <Text style={styles.restaurantText}>Blue Hill</Text>
-          <View style={{ flexDirection: "column" }}>
-            <View style={{ flexDirection: "row", marginLeft: 5, marginTop: 5 }}>
-              <Image style={styles.gpsIcon} source={require('./assets/location.jpg')} />
-              <Text style={styles.locationText}>75 Washington PI</Text>
-              <Image style={styles.heartIcon} source={require('./assets/heart.jpeg')} ></Image>
-              <Text style={styles.liketext}>215</Text>
-            </View>
-          </View>
-        </View>
-
-        <View style={{ width: "10%" }}>
-          <Image style={styles.rightArrow} source={require('./assets/right-arrow.jpeg')}></Image>
-        </View>
-      </View>
-
-      <View
-        style={{
-          borderBottomColor: '#A9A9A9',
-          borderBottomWidth: 0.4,
-          marginTop: 5
-        }}
-      />
-
-      <View style={{ flexDirection: "row", padding: 20, height: "10%" }}>
-        <View style={{ width: "20%" }}>
-          <Image style={styles.restaurantImage} source={require('./assets/pasta.png')} />
-        </View>
-
-        <View style={{ width: "70%", marginTop: 5 }}>
-          <Text style={styles.restaurantText}>Le Bernardin</Text>
-          <View style={{ flexDirection: "column" }}>
-            <View style={{ flexDirection: "row", marginLeft: 5, marginTop: 5 }}>
-              <Image style={styles.gpsIcon} source={require('./assets/location.jpg')} />
-              <Text style={styles.locationText}>155 W 51th St</Text>
-              <Image style={styles.heartIcon} source={require('./assets/heart.jpeg')} ></Image>
-              <Text style={styles.liketext}>199</Text>
-            </View>
-          </View>
-        </View>
-
-        <View style={{ width: "10%" }}>
-          <Image style={styles.rightArrow} source={require('./assets/right-arrow.jpeg')}></Image>
-        </View>
-
-
-
-      </View>
-
-      <View
-        style={{
-          borderBottomColor: '#A9A9A9',
-          borderBottomWidth: 0.4,
-          marginTop: 5
-        }}
-      />
-
-      <View style={{ flexDirection: "row", padding: 20, height: "10%" }}>
-        <View style={{ width: "20%" }}>
-          <Image style={styles.restaurantImage} source={require('./assets/pizza.jpg')} />
-        </View>
-
-        <View style={{ width: "70%", marginTop: 5 }}>
-          <Text style={styles.restaurantText}>Jean-Georges</Text>
-          <View style={{ flexDirection: "column" }}>
-            <View style={{ flexDirection: "row", marginLeft: 5, marginTop: 5 }}>
-              <Image style={styles.gpsIcon} source={require('./assets/location.jpg')} />
-              <Text style={styles.locationText}>1 Central Park West</Text>
-              <Image style={styles.heartIcon} source={require('./assets/heart.jpeg')} ></Image>
-              <Text style={styles.liketext}>183</Text>
-            </View>
-          </View>
-        </View>
-
-        <View style={{ width: "10%" }}>
-          <Image style={styles.rightArrow} source={require('./assets/right-arrow.jpeg')}></Image>
-        </View>
-
-
-
-      </View>
-
-      <View
-        style={{
-          borderBottomColor: '#A9A9A9',
-          borderBottomWidth: 0.4,
-          marginTop: 5
-        }}
-      />
-
-      <View style={{ flexDirection: "row", padding: 20, height: "10%" }}>
-        <View style={{ width: "20%" }}>
-          <Image style={styles.restaurantImage} source={require('./assets/burger.jpg')} />
-        </View>
-
-        <View style={{ width: "70%", marginTop: 5 }}>
-          <Text style={styles.restaurantText}>Ninja New York</Text>
-          <View style={{ flexDirection: "column" }}>
-            <View style={{ flexDirection: "row", marginLeft: 5, marginTop: 5 }}>
-              <Image style={styles.gpsIcon} source={require('./assets/location.jpg')} />
-              <Text style={styles.locationText}>25 Hudson St</Text>
-              <Image style={styles.heartIcon} source={require('./assets/heart.jpeg')} ></Image>
-              <Text style={styles.liketext}>78</Text>
-            </View>
-          </View>
-        </View>
-
-        <View style={{ width: "10%" }}>
-          <Image style={styles.rightArrow} source={require('./assets/right-arrow.jpeg')}></Image>
-        </View>
-
-
-
-      </View>
-
-      <View
-        style={{
-          borderBottomColor: '#A9A9A9',
-          borderBottomWidth: 0.4,
-          marginTop: 5
-        }}
-      />
-
-<View style={{ flexDirection: "row", padding: 20, height: "10%" }}>
-        <View style={{ width: "20%" }}>
-          <Image style={styles.restaurantImage} source={require('./assets/burger.jpg')} />
-        </View>
-
-        <View style={{ width: "70%", marginTop: 5 }}>
-          <Text style={styles.restaurantText}>Ninja New York</Text>
-          <View style={{ flexDirection: "column" }}>
-            <View style={{ flexDirection: "row", marginLeft: 5, marginTop: 5 }}>
-              <Image style={styles.gpsIcon} source={require('./assets/location.jpg')} />
-              <Text style={styles.locationText}>25 Hudson St</Text>
-              <Image style={styles.heartIcon} source={require('./assets/heart.jpeg')} ></Image>
-              <Text style={styles.liketext}>78</Text>
-            </View>
-          </View>
-        </View>
-
-        <View style={{ width: "10%" }}>
-          <Image style={styles.rightArrow} source={require('./assets/right-arrow.jpeg')}></Image>
-        </View>
-
-
-
-      </View>
-
-      <View
-        style={{
-          borderBottomColor: '#A9A9A9',
-          borderBottomWidth: 0.4,
-          marginTop: 5
-        }}
-      />
-
-<View style={{ flexDirection: "row", padding: 20, height: "10%" }}>
-        <View style={{ width: "20%" }}>
-          <Image style={styles.restaurantImage} source={require('./assets/burger.jpg')} />
-        </View>
-
-        <View style={{ width: "70%", marginTop: 5 }}>
-          <Text style={styles.restaurantText}>Ninja New York</Text>
-          <View style={{ flexDirection: "column" }}>
-            <View style={{ flexDirection: "row", marginLeft: 5, marginTop: 5 }}>
-              <Image style={styles.gpsIcon} source={require('./assets/location.jpg')} />
-              <Text style={styles.locationText}>25 Hudson St</Text>
-              <Image style={styles.heartIcon} source={require('./assets/heart.jpeg')} ></Image>
-              <Text style={styles.liketext}>78</Text>
-            </View>
-          </View>
-        </View>
-
-        <View style={{ width: "10%" }}>
-          <Image style={styles.rightArrow} source={require('./assets/right-arrow.jpeg')}></Image>
-        </View>
-
-
-
-      </View>
-
-      <View
-        style={{
-          borderBottomColor: '#A9A9A9',
-          borderBottomWidth: 0.4,
-          marginTop: 5
-        }}
-      />
-
-
-<View style={{ flexDirection: "row", padding: 20, height: "10%" }}>
-        <View style={{ width: "20%" }}>
-          <Image style={styles.restaurantImage} source={require('./assets/burger.jpg')} />
-        </View>
-
-        <View style={{ width: "70%", marginTop: 5 }}>
-          <Text style={styles.restaurantText}>Ninja New York</Text>
-          <View style={{ flexDirection: "column" }}>
-            <View style={{ flexDirection: "row", marginLeft: 5, marginTop: 5 }}>
-              <Image style={styles.gpsIcon} source={require('./assets/location.jpg')} />
-              <Text style={styles.locationText}>25 Hudson St</Text>
-              <Image style={styles.heartIcon} source={require('./assets/heart.jpeg')} ></Image>
-              <Text style={styles.liketext}>78</Text>
-            </View>
-          </View>
-        </View>
-
-        <View style={{ width: "10%" }}>
-          <Image style={styles.rightArrow} source={require('./assets/right-arrow.jpeg')}></Image>
-        </View>
-
-
-
-      </View>
-
-      <View
-        style={{
-          borderBottomColor: '#A9A9A9',
-          borderBottomWidth: 0.4,
-          marginTop: 5
-        }}
-      />
-
     </View>
-    </ScrollView>
+  )
+}
+
+const BrowseRestaurants = () => {
+  return (
+
+    <View style={styles.container}>
+      <Header heading="Browse Restaurants"/>
+      <ScrollView>
+        {datas.map(createData)}
+      </ScrollView>
+      <Footer />
+    </View>
   )
 }
 
@@ -313,29 +121,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-  header: {
-    height: "10%",
-    width: "100%",
-    backgroundColor: '#1E90FF',
+  restaurantRowStyle: {
+    flex: 1,
     flexDirection: "row",
-    alignItems: "center"
-  },
-  headerText: {
-    color: '#FFFFFF',
-    marginLeft: 70,
-    fontSize: 18
-  },
-  leftArrowIcon: {
-    height: "40%",
-    width: "6%",
-    marginLeft: 15,
-    marginTop: 7
-  },
-  searchIcon: {
-    height: "40%",
-    width: "6%",
-    marginLeft: 55,
-    marginTop: 5
+    padding: 20, height: "10%"
   },
   restaurantHeading: {
     flexDirection: "row"
@@ -368,7 +157,7 @@ const styles = StyleSheet.create({
   },
   liketext: {
     color: '#A9A9A9'
-  },
+  }
 });
 
-export default App;
+export default BrowseRestaurants;
