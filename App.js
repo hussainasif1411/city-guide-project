@@ -15,6 +15,60 @@ const App = () => {
 }
 export default App;
 
+
+//********************************Fetching data from API**************************************//
+
+// import React, { useState }  from 'react';
+// import {StyleSheet, View, TouchableOpacity, Text} from 'react-native';
+// import Axios from 'axios';
+
+// const App = () => {
+
+//   const [userData, setUserData] = useState([]);
+
+//   // const getDataUsingSimpleGetCall = () => {
+//     Axios
+//       .get('https://jsonplaceholder.typicode.com/todos/1')
+//       .then(function (response) {
+//         //alert(JSON.stringify(response.data));
+//         setUserData(response.data);
+//       })
+//       .catch(function (error) {
+//         alert(error.message);
+//       })
+//   // };
+//   return (
+//     <View style={styles.container}>
+//       <Text>Hello World</Text>
+//       <Text>{userData.title}</Text>
+//       {/* <TouchableOpacity
+//         style={styles.buttonStyle}
+//         onPress={getDataUsingSimpleGetCall}>
+//         <Text>Get Call</Text>
+//       </TouchableOpacity> */}
+//     </View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     justifyContent: 'center',
+//     flex: 1,
+//     padding: 16,
+//   },
+//   buttonStyle: {
+//     alignItems: 'center',
+//     backgroundColor: '#DDDDDD',
+//     padding: 10,
+//     width: '100%',
+//     marginTop: 16,
+//   },
+// });
+
+// export default App;
+
+
+
 //Browse Categories
 
 // import React from "react";
