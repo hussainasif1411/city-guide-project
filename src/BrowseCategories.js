@@ -18,7 +18,7 @@ const BrowseCategories = ({ navigation }) => {
       .catch(function (error) {
         alert(error.message);
       })
-  });
+  }, []);
 
   return (
     <View style={styles.container}>
